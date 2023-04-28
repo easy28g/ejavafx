@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -25,13 +26,13 @@
    <children>
       <AnchorPane prefHeight="25.0" prefWidth="1200.0" style="-fx-background-color: #606060;">
          <children>
-            <MenuBar layoutX="328.0" layoutY="1.0" styleClass="menuFile" AnchorPane.leftAnchor="327.0" AnchorPane.rightAnchor="327.0">
+            <MenuBar fx:id="mainMenuBar" layoutX="328.0" layoutY="1.0" styleClass="menuFile" AnchorPane.leftAnchor="327.0" AnchorPane.rightAnchor="327.0">
               <menus>
-                <Menu mnemonicParsing="false" styleClass="menuItemFile" text="Файл">
+                <Menu fx:id="FileMenuBar" mnemonicParsing="false" styleClass="menuItemFile" text="Файл">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Настройки языка" />
                         <MenuItem mnemonicParsing="false" text="Интервал" />
-                        <MenuItem mnemonicParsing="false" text="Перезапустить" />
+                        <MenuItem fx:id="reloadAppButton" mnemonicParsing="false" text="Перезапустить" />
                         <MenuItem mnemonicParsing="false" text="Выход" />
                   </items>
                 </Menu>
@@ -275,12 +276,192 @@
                             </Tab>
                               <Tab fx:id="addPatientRegTab" text="Добавить пациента">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="185.0" layoutY="40.0" text="ФИО">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField layoutX="341.0" layoutY="37.0" />
+                                          <Label layoutX="185.0" layoutY="146.0" text="Врач">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="116.0" layoutY="190.0" text="Удостоверение пенсионера">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="123.0" layoutY="249.0" text="Номер дисконтной карты">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="138.0" layoutY="297.0" text="Мобильный телефон">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="144.0" layoutY="352.0" text="Электронная почта">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField layoutX="341.0" layoutY="143.0" />
+                                          <TextField layoutX="341.0" layoutY="190.0" />
+                                          <TextField layoutX="341.0" layoutY="246.0" />
+                                          <TextField layoutX="341.0" layoutY="294.0" />
+                                          <TextField layoutX="341.0" layoutY="350.0" />
+                                          <Label layoutX="185.0" layoutY="404.0" text="ПИН">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField layoutX="341.0" layoutY="401.0" />
+                                          <MenuButton layoutX="341.0" layoutY="89.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Пол">
+                                            <items>
+                                              <MenuItem mnemonicParsing="false" text="Мужчина" />
+                                              <MenuItem mnemonicParsing="false" text="Женщина" />
+                                            </items>
+                                          </MenuButton>
+                                          <Label layoutX="666.0" layoutY="40.0" text="Дата рождения">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="696.0" layoutY="92.0" text="Адрес">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="650.0" layoutY="146.0" text="Паспортные данные">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="653.0" layoutY="190.0" text="ФИО на английском">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="649.0" layoutY="249.0" text="Общий комментарий">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="642.0" layoutY="297.0" text="Диагноз и комм. лабор.">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="696.0" layoutY="352.0" text="Скидка">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="628.0" layoutY="404.0" text="Получать смс уведомления">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField layoutX="858.0" layoutY="37.0" />
+                                          <TextField layoutX="858.0" layoutY="89.0" />
+                                          <TextField layoutX="858.0" layoutY="143.0" />
+                                          <TextField layoutX="857.0" layoutY="190.0" />
+                                          <TextField layoutX="858.0" layoutY="246.0" />
+                                          <TextField layoutX="858.0" layoutY="294.0" />
+                                          <TextField layoutX="858.0" layoutY="350.0" />
+                                          <CheckBox layoutX="924.0" layoutY="405.0" mnemonicParsing="false" />
+                                       </children>
+                                    </AnchorPane>
                                 </content>
                               </Tab>
                             <Tab fx:id="analyseRegTab" text="Анализы">
                               <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="275.0" prefWidth="200.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="275.0" prefWidth="200.0">
+                                       <children>
+                                          <TreeView layoutX="5.0" layoutY="4.0" prefHeight="186.0" prefWidth="676.0" />
+                                          <ScrollPane layoutX="687.0" layoutY="4.0" prefHeight="186.0" prefWidth="241.0">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="170.0" prefWidth="240.0" />
+                                            </content>
+                                          </ScrollPane>
+                                          <TableView layoutX="934.0" layoutY="4.0" prefHeight="185.0" prefWidth="258.0">
+                                            <columns>
+                                              <TableColumn prefWidth="179.20001220703125" text="Расходные материалы" />
+                                              <TableColumn prefWidth="77.5999755859375" text="Цены" />
+                                            </columns>
+                                          </TableView>
+                                          <Label layoutX="88.0" layoutY="195.0" text="Все срочные">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="297.0" layoutY="195.0" text="Печать">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="503.0" layoutY="195.0" text="ККМ">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="687.0" layoutY="195.0" text="Штрих-код">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="925.0" layoutY="195.0" text="Банк">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <MenuButton layoutX="962.0" layoutY="192.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" text="Способ оплаты">
+                                            <items>
+                                              <MenuItem mnemonicParsing="false" text="Наличные" />
+                                              <MenuItem mnemonicParsing="false" text="Банковская карта" />
+                                            </items>
+                                          </MenuButton>
+                                          <CheckBox layoutX="180.0" layoutY="197.0" mnemonicParsing="false" />
+                                          <CheckBox layoutX="350.0" layoutY="197.0" mnemonicParsing="false" />
+                                          <CheckBox layoutX="539.0" layoutY="197.0" mnemonicParsing="false" />
+                                          <CheckBox layoutX="764.0" layoutY="197.0" mnemonicParsing="false" />
+                                          <TableView layoutX="5.0" layoutY="221.0" prefHeight="257.0" prefWidth="1187.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="C1" />
+                                              <TableColumn prefWidth="75.0" text="C2" />
+                                            </columns>
+                                          </TableView>
+                                          <TextField layoutX="71.0" layoutY="484.0" prefHeight="26.0" prefWidth="100.0" />
+                                          <TextField layoutX="299.0" layoutY="485.0" prefHeight="26.0" prefWidth="100.0" />
+                                          <TextField layoutX="533.0" layoutY="484.0" prefHeight="26.0" prefWidth="100.0" />
+                                          <TextField layoutX="796.0" layoutY="484.0" prefHeight="26.0" prefWidth="100.0" />
+                                          <Label layoutX="21.0" layoutY="487.0" text="Сумма">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="227.0" layoutY="487.0" text="Оплачено">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="484.0" layoutY="487.0" text="Сдача">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="729.0" layoutY="487.0" text="Заплатил">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button layoutX="946.0" layoutY="485.0" mnemonicParsing="false" text="Отменить" />
+                                          <Button layoutX="1060.0" layoutY="484.0" mnemonicParsing="false" text="Оформить заказ" />
+                                       </children></AnchorPane>
                               </content>
                             </Tab>
                           </tabs>

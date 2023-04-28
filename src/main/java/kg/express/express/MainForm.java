@@ -176,7 +176,24 @@ public class MainForm {
     private Button reloadRegButton;
 
     @FXML
+    private MenuBar mainMenuBar;
+
+
+    @FXML
+    private MenuItem reloadAppButton;
+
+    @FXML
     void initialize() {
+
+        reloadAppButton.setOnAction(actionEvent -> {
+            try {
+                Stage stage = (Stage) reloadAppButton.getParentPopup().getOwnerWindow();
+                HelloApplication app = new HelloApplication();
+                app.start(stage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
         tabRegistrator.setOnSelectionChanged(event -> {
             if (tabFindAnalyse.isSelected()) {
