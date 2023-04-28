@@ -431,8 +431,14 @@
                                           <CheckBox layoutX="764.0" layoutY="197.0" mnemonicParsing="false" />
                                           <TableView layoutX="5.0" layoutY="221.0" prefHeight="257.0" prefWidth="1187.0">
                                             <columns>
-                                              <TableColumn prefWidth="75.0" text="C1" />
-                                              <TableColumn prefWidth="75.0" text="C2" />
+                                              <TableColumn prefWidth="75.0" text="Анализы" />
+                                              <TableColumn prefWidth="75.0" text="Цена" />
+                                                <TableColumn prefWidth="75.0" text="Кол-во" />
+                                                <TableColumn prefWidth="75.0" text="Скидка" />
+                                                <TableColumn prefWidth="75.0" text="Итого" />
+                                                <TableColumn prefWidth="99.199951171875" text="Напр. врач" />
+                                                <TableColumn prefWidth="155.20001220703125" text="Врач принимающий" />
+                                                <TableColumn prefWidth="100.79998779296875" text="Удалить" />
                                             </columns>
                                           </TableView>
                                           <TextField layoutX="71.0" layoutY="484.0" prefHeight="26.0" prefWidth="100.0" />
