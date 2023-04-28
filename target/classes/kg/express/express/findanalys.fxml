@@ -247,37 +247,38 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="545.0" prefWidth="1200.0" snapToPixel="false">
                      <children>
-                        <TabPane prefHeight="545.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane fx:id="registratorDataTabPane" prefHeight="545.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
                           <tabs>
                             <Tab fx:id="patientDataTab" text="Данные о пациенте">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
                                           <TreeView fx:id="registratorPationDataTree" layoutX="6.0" layoutY="5.0" prefHeight="505.0" prefWidth="200.0" />
-                                          <TableView layoutX="212.0" layoutY="35.0" prefHeight="474.0" prefWidth="980.0">
+                                          <TableView fx:id="registrationTable" layoutX="212.0" layoutY="35.0" prefHeight="474.0" prefWidth="980.0">
                                             <columns>
-                                              <TableColumn prefWidth="60.0" text="ID" />
-                                              <TableColumn prefWidth="160.0" text="ФИО" />
-                                                <TableColumn prefWidth="108.0" text="Цель регистрации" />
-                                                <TableColumn prefWidth="90.0" text="Дата" />
-                                                <TableColumn prefWidth="139.0" text="Результат" />
-                                                <TableColumn prefWidth="111.0" text="Пол" />
-                                                <TableColumn prefWidth="139.0" text="Сумма" />
-                                                <TableColumn prefWidth="158.0" text="Комментарий" />
+                                              <TableColumn fx:id="codeReg" prefWidth="60.0" text="ID" />
+                                              <TableColumn fx:id="fioReg" prefWidth="160.0" text="ФИО" />
+                                                <TableColumn fx:id="purposeReg" prefWidth="108.0" text="Цель регистрации" />
+                                                <TableColumn fx:id="dateReg" prefWidth="90.0" text="Дата" />
+                                                <TableColumn fx:id="resultReg" prefWidth="139.0" text="Результат" />
+                                                <TableColumn fx:id="genderReg" prefWidth="111.0" text="Пол" />
+                                                <TableColumn fx:id="sumReg" prefWidth="139.0" text="Сумма" />
+                                                <TableColumn fx:id="commentReg" prefWidth="158.0" text="Комментарий" />
                                             </columns>
                                           </TableView>
-                                          <TextField layoutX="357.0" layoutY="5.0" />
+                                          <TextField fx:id="findPatientButton" layoutX="357.0" layoutY="5.0" />
                                           <Button fx:id="registratorPatiantDataFindButton" layoutX="514.0" layoutY="5.0" mnemonicParsing="false" text="Поиск" />
+                                          <Button fx:id="reloadRegButton" layoutX="228.0" layoutY="5.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" text="*" />
                                        </children>
                                     </AnchorPane>
                               </content>
                             </Tab>
-                              <Tab text="Добавить пациента">
+                              <Tab fx:id="addPatientRegTab" text="Добавить пациента">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                 </content>
                               </Tab>
-                            <Tab text="Анализы">
+                            <Tab fx:id="analyseRegTab" text="Анализы">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="275.0" prefWidth="200.0" />
                               </content>

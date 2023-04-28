@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -113,25 +112,88 @@ public class MainForm {
     private MenuButton menuItem;
 
     @FXML
-    private Tab tabFindAnalyse;
+    private Tab tabFindAnalyse = new Tab();
 
     @FXML
-    private Tab tabRegistrator;
+    private Tab tabRegistrator = new Tab();
 
     @FXML
-    private Tab patientDataTab;
+    private Tab patientDataTab = new Tab();
+
+    @FXML
+    private TableView<RegPatient> registrationTable;
+
+    @FXML
+    private TableColumn<RegPatient, Integer> codeReg;
+
+    @FXML
+    private TableColumn<RegPatient, String> fioReg;
+
+    @FXML
+    private TableColumn<RegPatient, String> purposeReg;
+
+    @FXML
+    private TableColumn<RegPatient, String> dateReg;
+
+    @FXML
+    private TableColumn<RegPatient, String> resultReg;
+
+    @FXML
+    private TableColumn<RegPatient, String> genderReg;
+
+    @FXML
+    private TableColumn<RegPatient, String> sumReg;
+
+    @FXML
+    private TableColumn<RegPatient, String> commentReg;
+
+    List<RegPatient> regPatientList = List.of(
+            new RegPatient(1, "Иванов Иван Иванович", "Для консультации", "2022-01-01", "Ожидает", "Мужской", "1000", "Комментарий 1"),
+            new RegPatient(2, "Петрова Ольга Сергеевна", "Для осмотра", "2022-01-02", "Выполнено", "Женский", "2000", "Комментарий 2"),
+            new RegPatient(3, "Сидоров Василий Петрович", "Для анализов", "2022-01-03", "Отменено", "Мужской", "1500", "Комментарий 3"),
+            new RegPatient(4, "Кузнецова Анна Ивановна", "Для консультации", "2022-01-04", "Ожидает", "Женский", "1000", "Комментарий 4"),
+            new RegPatient(5, "Смирнов Сергей Петрович", "Для осмотра", "2022-01-05", "Выполнено", "Мужской", "2000", "Комментарий 5"),
+            new RegPatient(6, "Николаева Екатерина Владимировна", "Для анализов", "2022-01-06", "Ожидает", "Женский", "1500", "Комментарий 6"),
+            new RegPatient(7, "Козлов Дмитрий Александрович", "Для консультации", "2022-01-07", "Отменено", "Мужской", "1000", "Комментарий 7"),
+            new RegPatient(8, "Белова Анастасия Олеговна", "Для осмотра", "2022-01-08", "Выполнено", "Женский", "2000", "Комментарий 8"),
+            new RegPatient(9, "Шестаков Виктор Иванович", "Для анализов", "2022-01-09", "Ожидает", "Мужской", "1500", "Комментарий 9"),
+            new RegPatient(10, "Федорова Екатерина Александровна", "Для консультации", "2022-01-10", "Отменено", "Женский", "1000", "Комментарий 10")
+    );
+
+    @FXML
+    private TextField findPatientButton;
+
+    @FXML
+    private Tab addPatientRegTab;
 
     @FXML
     private TabPane registratorDataTabPane;
+
+    @FXML
+    private Tab analyseRegTab;
+
+    @FXML
+    private Button reloadRegButton;
 
     @FXML
     void initialize() {
 
         tabRegistrator.setOnSelectionChanged(event -> {
             if (tabFindAnalyse.isSelected()) {
-                System.out.println("YES1");
+
             }
         });
+
+        // Первое вхождение
+        if(tabRegistrator.isSelected() && patientDataTab.isSelected()){
+            registrationAddAllInfo();
+
+            System.out.println("tabRegistrator patientDataTab");
+            registratorPatiantDataFindButton.setOnAction(actionEvent -> {
+                registrationSearchButton();
+                System.out.println("button tabRegistrator patientDataTab");
+            });
+        }
 
         TreeItem<String> treeRoot = new TreeItem<>("Даты");
         TreeItem<String> chapter1 = new TreeItem<>("28.04.2023");
@@ -159,13 +221,18 @@ public class MainForm {
 
         patientDataTab.setOnSelectionChanged(event1 ->  {
             if(patientDataTab.isSelected()){
+                registrationAddAllInfo();
                 System.out.println("YES2");
                 registratorPatiantDataFindButton.setOnAction(actionEvent -> {
+                    registrationSearchButton();
                     System.out.println("Button find");
+                });
+
+                reloadRegButton.setOnAction(actionEvent -> {
+                    registrationTable.setItems(FXCollections.observableList(regPatientList));
                 });
             }
         });
-
 
         tabFindAnalyse.setOnSelectionChanged(event -> {
             if (tabFindAnalyse.isSelected()) {
@@ -183,7 +250,6 @@ public class MainForm {
                 resultDateColumn.setCellValueFactory(new PropertyValueFactory<>("dateResult"));
 
                 findAnalyseTable.setItems(FXCollections.observableList(findAnalyseList));
-
 
                 advancedSearchAnalyseButton.setOnAction(buttonEvent -> {
                     FXMLLoader loader = new FXMLLoader();
@@ -203,7 +269,6 @@ public class MainForm {
                 });
 
                 findAnalyseButton.setOnAction(actionEvent -> {
-//                    findAnalyseText.getText()
                     for(int i=0; i<findAnalyseList.size(); i++){
                         if (findAnalyseText.getText().equals(String.valueOf(findAnalyseList.get(i).getCode()))){
                             FindAnalyse foundAnalyse = findAnalyseList.get(i);
@@ -220,6 +285,30 @@ public class MainForm {
                 });
             }
         });
+    }
+
+    private void registrationSearchButton() {
+        for(int i=0; i<regPatientList.size(); i++){
+            if(findPatientButton.getText().equals(String.valueOf(regPatientList.get(i).getCodeReg()))){
+                RegPatient regPatient = regPatientList.get(i);
+                ObservableList<RegPatient> foundList = FXCollections.observableArrayList();
+                foundList.add(regPatient);
+                registrationTable.setItems(foundList);
+                break;
+            }
+        }
+    }
+
+    private void registrationAddAllInfo() {
+        codeReg.setCellValueFactory(new PropertyValueFactory<>("codeReg"));
+        fioReg.setCellValueFactory(new PropertyValueFactory<>("fioReg"));
+        purposeReg.setCellValueFactory(new PropertyValueFactory<>("purposeReg"));
+        dateReg.setCellValueFactory(new PropertyValueFactory<>("dateReg"));
+        resultReg.setCellValueFactory(new PropertyValueFactory<>("resultReg"));
+        genderReg.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        sumReg.setCellValueFactory(new PropertyValueFactory<>("sumReg"));
+        commentReg.setCellValueFactory(new PropertyValueFactory<>("commentReg"));
+        registrationTable.setItems(FXCollections.observableList(regPatientList));
     }
 
 }
