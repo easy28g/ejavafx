@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kg.express.express.MainForm">
+   <children>
+      <AnchorPane prefHeight="25.0" prefWidth="1200.0" style="-fx-background-color: #606060;">
+         <children>
+            <MenuBar layoutX="328.0" layoutY="1.0" styleClass="menuFile" AnchorPane.leftAnchor="327.0" AnchorPane.rightAnchor="327.0">
+              <menus>
+                <Menu mnemonicParsing="false" styleClass="menuItemFile" text="Файл">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Настройки языка" />
+                        <MenuItem mnemonicParsing="false" text="Интервал" />
+                        <MenuItem mnemonicParsing="false" text="Перезапустить" />
+                        <MenuItem mnemonicParsing="false" text="Выход" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Регистратор">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Закрепить напр. врача" />
+                        <MenuItem mnemonicParsing="false" text="Сохранить пациента" />
+                        <MenuItem mnemonicParsing="false" text="Удалить заказ" />
+                        <MenuItem mnemonicParsing="false" text="Обновить" />
+                        <MenuItem mnemonicParsing="false" text="Закрыть кассу" />
+                        <MenuItem mnemonicParsing="false" text="Закрытие аутсорсинга" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Лаборатория">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Информация о тест-системах" />
+                        <MenuItem mnemonicParsing="false" text="Редактировать тип анализа" />
+                        <MenuItem mnemonicParsing="false" text="Редактировать поданализ" />
+                        <MenuItem mnemonicParsing="false" text="Редактировать позиции анализа" />
+                        <MenuItem mnemonicParsing="false" text="Редактировать результат анализа" />
+                        <MenuItem mnemonicParsing="false" text="Редактирование значение в аппарате" />
+                        <MenuItem mnemonicParsing="false" text="Нормы" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по протоколам" />
+                        <MenuItem mnemonicParsing="false" text="Протокол" />
+                        <MenuItem mnemonicParsing="false" text="Редактировать шаблоны результатов анализа" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по валидации" />
+                        <MenuItem mnemonicParsing="false" text="Отчет некорректности валидации" />
+                        <MenuItem mnemonicParsing="false" text="Отчет по валидации графика" />
+                        <Menu mnemonicParsing="false" styleClass="menuItemFile" text="Лаборатория">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Бактериология" />
+                              <MenuItem mnemonicParsing="false" text="Биохимия" />
+                              <MenuItem mnemonicParsing="false" text="Гистология" />
+                              <MenuItem mnemonicParsing="false" text="Клиника" />
+                              <MenuItem mnemonicParsing="false" text="ИФА" />
+                              <MenuItem mnemonicParsing="false" text="ПИФ" />
+                              <MenuItem mnemonicParsing="false" text="ПЦР" />
+                              <MenuItem mnemonicParsing="false" text="УЗИ" />
+                              <MenuItem mnemonicParsing="false" text="ЭКГ" />
+                              <MenuItem mnemonicParsing="false" text="Другие" />
+                              <MenuItem mnemonicParsing="false" text="Услуги" />
+                              <MenuItem mnemonicParsing="false" text="Все" />
+                           </items>
+                        </Menu>
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Справочник">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Справочник материалов" />
+                        <MenuItem mnemonicParsing="false" text="Справочник лаборатории" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по типу клиента" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по специальностям" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по анализам" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по профилям" />
+                        <MenuItem mnemonicParsing="false" text="Справочник рабочего времени" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по организациям" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по ценам" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по антибиотикам(группа)" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по антибиотикам" />
+                        <MenuItem mnemonicParsing="false" text="Производитель реагентов" />
+                        <MenuItem mnemonicParsing="false" text="Справочник источник нахождения " />
+                        <MenuItem mnemonicParsing="false" text="Справочник инструментов" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по банкам" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по контролям (анализ)" />
+                        <MenuItem mnemonicParsing="false" text="Отчет по переводам" />
+                        <MenuItem mnemonicParsing="false" text="Справочниккритерий в отказе б/м" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по базе знаний" />
+                        <MenuItem mnemonicParsing="false" text="База знаний" />
+                        <MenuItem mnemonicParsing="false" text="Справочник по карте для беременных" />
+                        <MenuItem mnemonicParsing="false" text="Редактировать бонус для организации" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Врачи">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Логин" />
+                        <MenuItem mnemonicParsing="false" text="Привилегии" />
+                        <MenuItem mnemonicParsing="false" text="Банки" />
+                        <MenuItem mnemonicParsing="false" text="Редактировать данные лаборанта" />
+                        <MenuItem mnemonicParsing="false" text="Изменить бонус" />
+                        <MenuItem mnemonicParsing="false" text="Редактировать код врача" />
+                        <MenuItem mnemonicParsing="false" text="Задать организации для менеджера" />
+                        <MenuItem mnemonicParsing="false" text="Изменить специальность" />
+                        <MenuItem mnemonicParsing="false" text="Редактировать шаблоны результатов" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Отчеты">
+                     <items>
+                        <Menu mnemonicParsing="false" text="Админ">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Отчет по вводу в систему регистраторов" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по регистрации" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по анализам (регистраторов)" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по выполненным анализам" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по логистике" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по ценнам" />
+                              <MenuItem mnemonicParsing="false" text="Отчет регистрации (обобщенный)" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по невыполненным анализам" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по регистрации (детально)" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Бухгалтерия">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Детальный список анализов по организациям" />
+                              <MenuItem mnemonicParsing="false" text="Детальный список анализов по врачам" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по лабораториям (кол-во)" />
+                              <MenuItem mnemonicParsing="false" text="Кол-во напр. (сумма) по организациям" />
+                              <MenuItem mnemonicParsing="false" text="affiliateReport" />
+                              <MenuItem mnemonicParsing="false" text="Report" />
+                              <MenuItem mnemonicParsing="false" text="Report by proxy" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по остаткам" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Лаборант">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Отчет по анализам за год" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по анализам за интервал" />
+                              <MenuItem mnemonicParsing="false" text="Детальный отчет по срочным анализам" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по выполненным анализам (по лаборантам)" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Старшая мед.сестра">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Отчет по товарам" />
+                              <MenuItem mnemonicParsing="false" text="Аутсорсинг" />
+                              <MenuItem mnemonicParsing="false" text="Sars-Cov-2" />
+                              <MenuItem mnemonicParsing="false" text="Sars-Cov-2 (ПЦР)" />
+                              <MenuItem mnemonicParsing="false" text="HIV" />
+                              <MenuItem mnemonicParsing="false" text="Отчет ручной отправки результатов анализов по почте" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по редактированию ФИО" />
+                              <MenuItem mnemonicParsing="false" text="Список анализов (аутсорсинг)" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по закрытию кассы" />
+                              <MenuItem mnemonicParsing="false" text="Журнал бракиражный для медсестер при приеме анализов" />
+                              <MenuItem mnemonicParsing="false" text="Кол-во анализов по врачам" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Регистрация">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Отчет по скидкам" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по приему курьера" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по регистратуре (статистика)" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по удалениям" />
+                              <MenuItem mnemonicParsing="false" text="Отчет о регистрации без направлений" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по комментариям" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Профиль">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Отчет по профилям (детально)" />
+                              <MenuItem mnemonicParsing="false" text="Статистика по профилям" />
+                              <MenuItem mnemonicParsing="false" text="Детальный отчет по профилям" />
+                              <MenuItem mnemonicParsing="false" text="Детальный отчет по зарегистрированным анализам" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Бухгалтерия-Бонус">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Бонус по врачам (новый)" />
+                              <MenuItem mnemonicParsing="false" text="Бонус по врачам (новый и детальный)" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по бонусам (обобщенный)" />
+                              <MenuItem mnemonicParsing="false" text="Бонус список врачей" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Авиценна">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Отчет по врачам МЦ по датам" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по врачам МЦ (общая сумма)" />
+                              <MenuItem mnemonicParsing="false" text="TimeTable" />
+                              <MenuItem mnemonicParsing="false" text="Статистика врачей" />
+                              <MenuItem mnemonicParsing="false" text="МЦ отчет по услугам, общие анализы, общая сумма" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по МЦ (Сумма для ОПУ)" />
+                              <MenuItem mnemonicParsing="false" text="Обобщенный отчет по напр./приему врачей" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по кол-ву направлений МЦ Авиценна (статистика)" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Менеджер">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Дата рождения врачей" />
+                              <MenuItem mnemonicParsing="false" text="Организации для менеджера" />
+                              <MenuItem mnemonicParsing="false" text="Кол-во напр/анализов по организациям" />
+                              <MenuItem mnemonicParsing="false" text="Кол-во напр/анализов по врачам" />
+                              <MenuItem mnemonicParsing="false" text="Полный список врачей" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по менеджерам" />
+                              <MenuItem mnemonicParsing="false" text="Роли сотрудников" />
+                              <MenuItem mnemonicParsing="false" text="Отчет по специальностям врачей" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Склад">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Отчет по складам" />
+                           </items>
+                        </Menu>
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Склад">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Список номенклатуры" />
+                        <MenuItem mnemonicParsing="false" text="Отчет по складу" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Другие">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="О программе" />
+                        <MenuItem mnemonicParsing="false" text="Обновить приложение" />
+                        <MenuItem mnemonicParsing="false" text="Обновить кэш" />
+                     </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+      <TabPane cache="true" layoutY="25.0" prefHeight="575.0" prefWidth="1200.0" style="-fx-border-color: #606060;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab id="reg" fx:id="tabRegistrator" text="Регистратор">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="545.0" prefWidth="1200.0" snapToPixel="false">
+                     <children>
+                        <TabPane fx:id="registratorDataTabPane" prefHeight="545.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab fx:id="patientDataTab" text="Данные о пациенте">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TreeView fx:id="registratorPationDataTree" layoutX="6.0" layoutY="5.0" prefHeight="505.0" prefWidth="200.0" />
+                                          <TableView layoutX="212.0" layoutY="35.0" prefHeight="474.0" prefWidth="980.0">
+                                            <columns>
+                                              <TableColumn prefWidth="60.0" text="ID" />
+                                              <TableColumn prefWidth="160.0" text="ФИО" />
+                                                <TableColumn prefWidth="108.0" text="Цель регистрации" />
+                                                <TableColumn prefWidth="90.0" text="Дата" />
+                                                <TableColumn prefWidth="139.0" text="Результат" />
+                                                <TableColumn prefWidth="111.0" text="Пол" />
+                                                <TableColumn prefWidth="139.0" text="Сумма" />
+                                                <TableColumn prefWidth="158.0" text="Комментарий" />
+                                            </columns>
+                                          </TableView>
+                                          <TextField layoutX="357.0" layoutY="5.0" />
+                                          <Button fx:id="registratorPatiantDataFindButton" layoutX="514.0" layoutY="5.0" mnemonicParsing="false" text="Поиск" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Добавить пациента">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                </content>
+                              </Tab>
+                            <Tab text="Анализы">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="275.0" prefWidth="200.0" />
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab id="find" fx:id="tabFindAnalyse" text="Найти анализ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="findAnalyseTable" layoutX="6.0" layoutY="36.0" prefHeight="501.0" prefWidth="1185.0">
+                          <columns>
+                            <TableColumn fx:id="idColumn" prefWidth="63.0" text="Код" />
+                            <TableColumn fx:id="fullNameColumn" prefWidth="113.0" text="ФИО" />
+                              <TableColumn fx:id="birthDateColumn" prefWidth="106.0" text="Дата рождения" />
+                              <TableColumn fx:id="genderColumn" minWidth="7.0" prefWidth="47.0" text="Пол" />
+                              <TableColumn fx:id="registrarColumn" prefWidth="84.0" text="Регистратор" />
+                              <TableColumn fx:id="registrationDateColumn" prefWidth="127.0" text=" Дата регистрации" />
+                              <TableColumn fx:id="statusColumn" prefWidth="129.0" text="Статус документа" />
+                              <TableColumn fx:id="commentColumn" prefWidth="102.0" text="Комментарий" />
+                              <TableColumn fx:id="analysisColumn" prefWidth="69.0" text="Анализы" />
+                              <TableColumn fx:id="doctorColumn" prefWidth="141.0" text="Врач принимающий" />
+                              <TableColumn fx:id="resultDateColumn" prefWidth="111.0" text="Дата результата" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="findAnalyseButton" layoutX="518.0" layoutY="6.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Найти" />
+                        <TextField fx:id="findAnalyseText" layoutX="356.0" layoutY="6.0" />
+                        <Button fx:id="advancedSearchAnalyseButton" layoutX="765.0" layoutY="6.0" mnemonicParsing="false" text="Расширенный поиск" />
+                        <Button fx:id="reloadAnalyseButton" layoutX="37.0" layoutY="6.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" text="*" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Врачи">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TreeTableView layoutX="6.0" layoutY="6.0" prefHeight="533.0" prefWidth="639.0">
+                          <columns>
+                            <TreeTableColumn prefWidth="131.0" text="Названия/ФИО" />
+                            <TreeTableColumn prefWidth="123.0" text="Код" />
+                              <TreeTableColumn prefWidth="111.0" text="Дата рождения" />
+                              <TreeTableColumn prefWidth="87.0" text="Отделение" />
+                              <TreeTableColumn prefWidth="157.0" text="Мобильный телефон" />
+                          </columns>
+                        </TreeTableView>
+                        <ScrollPane layoutX="650.0" layoutY="7.0" prefHeight="533.0" prefWidth="546.0">
+                           <content>
+                              <AnchorPane prefHeight="793.0" prefWidth="537.0">
+                                 <children>
+                                    <Label layoutX="85.0" layoutY="12.0" text="Фамилия">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="100.0" layoutY="53.0" text="Имя">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="84.0" layoutY="100.0" text="Отчество">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="67.0" layoutY="144.0" text="Квалификация">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="79.0" layoutY="185.0" text="Отделение">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="86.0" layoutY="224.0" text="Процент">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="102.0" layoutY="264.0" text="Код">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="65.0" layoutY="304.0" text="Дата рождения">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="61.0" layoutY="344.0" text="Рабочий телефон">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="53.0" layoutY="383.0" text="Мобильный телефон">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="59.0" layoutY="421.0" text="Электронная почта">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="75.0" layoutY="459.0" text="Организация">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="88.0" layoutY="497.0" text="Заметка">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="66.0" layoutY="540.0" text="Сотрудник МЦ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="50.0" layoutY="580.0" text="Процент получателя">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="294.0" endY="-7.0" layoutX="212.0" layoutY="50.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <TextField layoutX="226.0" layoutY="9.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="216.0" layoutY="95.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="216.0" layoutY="138.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="216.0" layoutY="182.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="217.0" layoutY="222.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="217.0" layoutY="262.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="218.0" layoutY="301.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="218.0" layoutY="341.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="218.0" layoutY="380.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="218.0" layoutY="419.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="218.0" layoutY="457.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <TextField layoutX="226.0" layoutY="51.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <TextField layoutX="226.0" layoutY="98.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <TextField layoutX="226.0" layoutY="142.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <TextField layoutX="226.0" layoutY="183.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <TextField layoutX="226.0" layoutY="222.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <TextField layoutX="226.0" layoutY="262.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <TextField layoutX="226.0" layoutY="302.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <TextField layoutX="226.0" layoutY="342.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <TextField layoutX="226.0" layoutY="381.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <TextField layoutX="226.0" layoutY="419.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="218.0" layoutY="495.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <TextField layoutX="226.0" layoutY="457.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="216.0" layoutY="540.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <TextField layoutX="226.0" layoutY="495.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <TextField layoutX="226.0" layoutY="580.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <TextField layoutX="226.0" layoutY="540.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <Line endX="294.0" endY="-7.0" layoutX="218.0" layoutY="580.0" opacity="0.5" startX="-193.0" startY="-7.0" strokeWidth="0.7" />
+                                    <Button layoutX="50.0" layoutY="630.0" mnemonicParsing="false" text="Добавить" />
+                                    <Button layoutX="150.0" layoutY="630.0" mnemonicParsing="false" text="Сохранить" />
+                                    <Button layoutX="250.0" layoutY="630.0" mnemonicParsing="false" text="Удалить" />
+                                    <Button layoutX="340.0" layoutY="630.0" mnemonicParsing="false" text="Специальность" />
+                                    <TextField layoutX="50.0" layoutY="720.0" prefHeight="25.0" prefWidth="252.0" />
+                                    <Button layoutX="320.0" layoutY="720.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Поиск" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Анализы">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="532.0" prefWidth="1198.0">
+                     <children>
+                        <TreeView layoutX="5.0" layoutY="5.0" prefHeight="534.0" prefWidth="207.0" />
+                        <TextField layoutX="218.0" layoutY="5.0" prefHeight="25.0" prefWidth="170.0" />
+                        <MenuButton layoutX="420.0" layoutY="5.0" mnemonicParsing="false" text="Выбрать">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Все" />
+                            <MenuItem mnemonicParsing="false" text="Готовые" />
+                              <MenuItem mnemonicParsing="false" text="Не готовые" />
+                          </items>
+                        </MenuButton>
+                        <DatePicker layoutX="219.0" layoutY="43.0" prefHeight="25.0" prefWidth="98.0" />
+                        <DatePicker layoutX="324.0" layoutY="43.0" prefHeight="25.0" prefWidth="98.0" />
+                        <Button layoutX="432.0" layoutY="43.0" mnemonicParsing="false" text="Показать" />
+                        <TextArea editable="false" layoutX="1002.0" layoutY="18.0" prefHeight="52.0" prefWidth="163.0" />
+                        <TextArea editable="false" layoutX="817.0" layoutY="18.0" prefHeight="52.0" prefWidth="163.0" />
+                        <TextArea editable="false" layoutX="632.0" layoutY="18.0" prefHeight="52.0" prefWidth="163.0" />
+                        <Label layoutX="634.0" layoutY="1.0" text="Норма" />
+                        <Label layoutX="819.0" layoutY="1.0" text="Единицы измерения" />
+                        <Label layoutX="1004.0" layoutY="1.0" text="Анамнез" />
+                        <TableView layoutX="218.0" layoutY="75.0" prefHeight="463.0" prefWidth="973.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Код" />
+                            <TableColumn prefWidth="135.0" text="Дата рождения" />
+                              <TableColumn prefWidth="117.0" text="Анализы" />
+                              <TableColumn prefWidth="126.0" text="Поданализ" />
+                              <TableColumn prefWidth="107.0" text="Результат" />
+                              <TableColumn prefWidth="99.0" text="Норма" />
+                              <TableColumn prefWidth="129.0" text="Единицы измерения" />
+                              <TableColumn prefWidth="170.0" text="Статус документа" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Логистика">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TreeView layoutX="6.0" layoutY="5.0" prefHeight="533.0" prefWidth="218.0" />
+                        <TextField layoutX="234.0" layoutY="7.0" prefHeight="25.0" prefWidth="188.0" />
+                        <Button layoutX="432.0" layoutY="7.0" mnemonicParsing="false" text="Найти" />
+                        <MenuButton layoutX="584.0" layoutY="7.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Выбрать">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Сортированные" />
+                            <MenuItem mnemonicParsing="false" text="Не сортированные" />
+                              <MenuItem mnemonicParsing="false" text="Карантин" />
+                              <MenuItem mnemonicParsing="false" text="По регистратору" />
+                          </items>
+                        </MenuButton>
+                        <Label layoutX="785.0" layoutY="11.0" text="Поиск по дате" />
+                        <DatePicker layoutX="870.0" layoutY="7.0" prefHeight="25.0" prefWidth="98.0" />
+                        <DatePicker layoutX="977.0" layoutY="7.0" prefHeight="25.0" prefWidth="98.0" />
+                        <TableView layoutX="234.0" layoutY="40.0" prefHeight="498.0" prefWidth="957.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Код заказа" />
+                            <TableColumn prefWidth="111.0" text="Дата регистрации" />
+                              <TableColumn prefWidth="91.0" text="Дата сдачи" />
+                              <TableColumn prefWidth="74.0" text="Дата сорт." />
+                              <TableColumn prefWidth="62.0" text="Пункт" />
+                              <TableColumn prefWidth="89.0" text="Регистратор" />
+                              <TableColumn prefWidth="77.0" text="Отдел" />
+                              <TableColumn prefWidth="109.0" text="Номер вакутейнера" />
+                              <TableColumn prefWidth="86.0" text="Анализы" />
+                              <TableColumn prefWidth="89.0" text="Статус документа" />
+                              <TableColumn prefWidth="88.0" text="Аутсорсинг" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Осмотр">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="355.0" layoutY="6.0" />
+                        <DatePicker layoutX="544.0" layoutY="6.0" prefHeight="25.0" prefWidth="97.0" />
+                        <DatePicker layoutX="646.0" layoutY="6.0" prefHeight="25.0" prefWidth="97.0" />
+                        <TableView layoutX="7.0" layoutY="37.0" prefHeight="502.0" prefWidth="1183.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Код" />
+                            <TableColumn prefWidth="75.0" text="ФИО" />
+                              <TableColumn prefWidth="150.0" text="Дата рождения" />
+                              <TableColumn minWidth="0.0" prefWidth="146.0" text="Регистратор" />
+                              <TableColumn prefWidth="155.0" text="Дата регистрации" />
+                              <TableColumn minWidth="6.0" prefWidth="123.0" text="Анализы" />
+                              <TableColumn prefWidth="158.0" text="Врач принимающий" />
+                              <TableColumn prefWidth="182.0" text="Операция" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Мед.сестра">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="355.0" layoutY="6.0" />
+                        <DatePicker layoutX="544.0" layoutY="6.0" prefHeight="25.0" prefWidth="97.0" />
+                        <DatePicker layoutX="646.0" layoutY="6.0" prefHeight="25.0" prefWidth="97.0" />
+                        <TableView layoutX="7.0" layoutY="37.0" prefHeight="502.0" prefWidth="1184.0">
+                          <columns>
+                            <TableColumn prefWidth="52.0" text="Код заказа" />
+                            <TableColumn prefWidth="125.00001525878906" text="Дата регистрации" />
+                              <TableColumn prefWidth="198.0" text="ФИО" />
+                              <TableColumn prefWidth="139.0" text="Регистратор" />
+                              <TableColumn prefWidth="151.0" text="Анализы" />
+                              <TableColumn prefWidth="120.0" text="Статус документа" />
+                              <TableColumn prefWidth="106.0" text="Пол" />
+                              <TableColumn prefWidth="118.0" text="Дата рождения" />
+                              <TableColumn prefWidth="187.0" text="Мед. сестра" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Склад">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane prefHeight="546.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Заявки">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="564.0">
+                                       <children>
+                                          <TextField layoutX="417.0" layoutY="6.0" prefHeight="25.0" prefWidth="242.0" />
+                                          <Button layoutX="666.0" layoutY="6.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Найти" />
+                                          <Button layoutX="1025.0" layoutY="6.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" text="Создать заявку" />
+                                          <MenuButton fx:id="menuItem" layoutX="825.0" layoutY="6.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" text="Выбрать">
+                                            <items>
+                                              <MenuItem fx:id="itemtext" mnemonicParsing="false" text="Все" />
+                                              <MenuItem fx:id="itemtext" mnemonicParsing="false" text="Новые" />
+                                                <MenuItem fx:id="itemtext" mnemonicParsing="false" text="Отправленные" />
+                                                <MenuItem fx:id="itemtext" mnemonicParsing="false" text="Частично" />
+                                                <MenuItem fx:id="itemtext" mnemonicParsing="false" text="Полученные" />
+                                            </items>
+                                          </MenuButton>
+                                          <TreeTableView layoutX="6.0" layoutY="41.0" prefHeight="467.0" prefWidth="1185.0">
+                                            <columns>
+                                              <TreeTableColumn text="Дата" />
+                                              <TreeTableColumn prefWidth="170.0" text="Организация" />
+                                                <TreeTableColumn prefWidth="130.0" text="Заказчик" />
+                                                <TreeTableColumn prefWidth="267.0" text="Комментраий" />
+                                                <TreeTableColumn prefWidth="146.0" text="Статус документа" />
+                                                <TreeTableColumn prefWidth="144.0" text="Номенклатура" />
+                                                <TreeTableColumn prefWidth="129.0" text="Кол-во" />
+                                                <TreeTableColumn prefWidth="130.0" text="Передано" />
+                                            </columns>
+                                          </TreeTableView>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Запись к врачу">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="6.0" layoutY="3.0" prefHeight="501.0" prefWidth="1186.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Код" />
+                            <TableColumn prefWidth="222.0" text="ФИО" />
+                              <TableColumn prefWidth="209.0" text="Дата" />
+                              <TableColumn prefWidth="140.0" text="Время" />
+                              <TableColumn prefWidth="161.0" text="Пациент" />
+                              <TableColumn prefWidth="175.0" text="Пол" />
+                              <TableColumn prefWidth="188.0" text="Дата рождения" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="954.0" layoutY="512.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Форма поиска" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
