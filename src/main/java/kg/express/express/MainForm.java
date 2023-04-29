@@ -340,9 +340,12 @@ public class MainForm {
                 });
 
                 ContextMenu contextMenu = new ContextMenu();
-                MenuItem menuItem1 = new MenuItem("Опция 1");
-                MenuItem menuItem2 = new MenuItem("Опция 2");
-                contextMenu.getItems().addAll(menuItem1, menuItem2);
+                MenuItem menuItem1 = new MenuItem("Результат анализа (ru)");
+                MenuItem menuItem2 = new MenuItem("Результат анализа (без шапки)");
+                MenuItem menuItem3 = new MenuItem("Регистрационный билет (ru)");
+                MenuItem menuItem4 = new MenuItem("Отправить на почту");
+                SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
+                contextMenu.getItems().addAll(menuItem1, menuItem2, menuItem3, separatorMenuItem, menuItem4);
 
                 registrationTable.setOnMouseClicked(event2 -> {
                     if (event2.getButton() == MouseButton.SECONDARY) {
@@ -401,6 +404,54 @@ public class MainForm {
 
                 reloadAnalyseButton.setOnAction(actionEvent -> {
                     findAnalyseTable.setItems(FXCollections.observableList(findAnalyseList));
+                });
+
+                findAnalyseTable.setOnMouseClicked(event3 -> {
+                    ContextMenu contextMenu = new ContextMenu();
+                    SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
+                    SeparatorMenuItem separatorMenuItem1 = new SeparatorMenuItem();
+                    SeparatorMenuItem separatorMenuItem2 = new SeparatorMenuItem();
+                    SeparatorMenuItem separatorMenuItem3 = new SeparatorMenuItem();
+                    SeparatorMenuItem separatorMenuItem4 = new SeparatorMenuItem();
+                    SeparatorMenuItem separatorMenuItem5 = new SeparatorMenuItem();
+                    SeparatorMenuItem separatorMenuItem6 = new SeparatorMenuItem();
+                    SeparatorMenuItem separatorMenuItem7 = new SeparatorMenuItem();
+                    SeparatorMenuItem separatorMenuItem8 = new SeparatorMenuItem();
+                    SeparatorMenuItem separatorMenuItem9 = new SeparatorMenuItem();
+                    SeparatorMenuItem separatorMenuItem10 = new SeparatorMenuItem();
+                    SeparatorMenuItem separatorMenuItem11 = new SeparatorMenuItem();
+                    SeparatorMenuItem separatorMenuItem12 = new SeparatorMenuItem();
+                    MenuItem menuItem1 = new MenuItem("Результат анализа (ru)");
+                    MenuItem menuItem2 = new MenuItem("Результат анализа на русском выборочно");
+                    MenuItem menuItem3 = new MenuItem("Результат диагностики выборочно");
+                    MenuItem menuItem4 = new MenuItem("Регистрационный билет");
+                    MenuItem menuItem5 = new MenuItem("Установить комментарий");
+                    MenuItem menuItem6 = new MenuItem("Отправить на почту");
+                    MenuItem menuItem7 = new MenuItem("Обновить ФИО пациента");
+                    MenuItem menuItem8 = new MenuItem("История заказа");
+                    MenuItem menuItem9 = new MenuItem("Закрепить напр. врача");
+                    MenuItem menuItem10 = new MenuItem("Закрепить принимающего врача");
+                    MenuItem menuItem11 = new MenuItem("Повторить анализ");
+                    MenuItem menuItem12 = new MenuItem("Не отправлен БМ");
+                    MenuItem menuItem13 = new MenuItem("Отправлен БМ");
+                    MenuItem menuItem14 = new MenuItem("Перезабор");
+                    MenuItem menuItem15 = new MenuItem("Выбраковка анализа");
+                    MenuItem menuItem16 = new MenuItem("Установить ККМ");
+                    MenuItem menuItem17 = new MenuItem("Снять ККМ");
+                    MenuItem menuItem18 = new MenuItem("Результат анализа (без шапки)");
+                    MenuItem menuItem19 = new MenuItem("Результат анализа на английском (без шапки)");
+                    contextMenu.getItems().addAll(menuItem1, menuItem2, menuItem3, separatorMenuItem, menuItem4,
+                            separatorMenuItem1, menuItem5, separatorMenuItem2, menuItem6,separatorMenuItem3,
+                            menuItem7, separatorMenuItem4, menuItem8, separatorMenuItem5, menuItem9, separatorMenuItem6,
+                            menuItem10, separatorMenuItem7, menuItem11, separatorMenuItem8, menuItem12, menuItem13,
+                            separatorMenuItem9, menuItem14, separatorMenuItem10, menuItem15, separatorMenuItem11,
+                            menuItem16, menuItem17, separatorMenuItem12, menuItem18, menuItem19);
+
+                    findAnalyseTable.setOnMouseClicked(event1 -> {
+                        if (event1.getButton() == MouseButton.SECONDARY) {
+                            contextMenu.show(findAnalyseTable, event1.getScreenX(), event1.getScreenY());
+                        }
+                    });
                 });
             }
         });
