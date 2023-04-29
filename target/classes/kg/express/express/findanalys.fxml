@@ -429,7 +429,7 @@
                                           <CheckBox layoutX="350.0" layoutY="197.0" mnemonicParsing="false" />
                                           <CheckBox layoutX="539.0" layoutY="197.0" mnemonicParsing="false" />
                                           <CheckBox layoutX="764.0" layoutY="197.0" mnemonicParsing="false" />
-                                          <TableView layoutX="5.0" layoutY="221.0" prefHeight="257.0" prefWidth="1187.0">
+                                          <TableView fx:id="analyseRegTable" layoutX="5.0" layoutY="221.0" prefHeight="257.0" prefWidth="1187.0">
                                             <columns>
                                               <TableColumn prefWidth="75.0" text="Анализы" />
                                               <TableColumn prefWidth="75.0" text="Цена" />

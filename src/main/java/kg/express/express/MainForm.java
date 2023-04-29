@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -234,6 +236,9 @@ public class MainForm {
     private Button reloadAppointmentDoctorButton;
 
     @FXML
+    private TableView<?> analyseRegTable;
+
+    @FXML
     void initialize() {
 
         reloadAppButton.setOnAction(actionEvent -> {
@@ -265,7 +270,36 @@ public class MainForm {
                 registrationSearchButton();
                 System.out.println("button tabRegistrator patientDataTab");
             });
+
+            ContextMenu contextMenu = new ContextMenu();
+            MenuItem menuItem1 = new MenuItem("Результат анализа (ru)");
+            MenuItem menuItem2 = new MenuItem("Результат анализа (без шапки)");
+            MenuItem menuItem3 = new MenuItem("Регистрационный билет (ru)");
+            MenuItem menuItem4 = new MenuItem("Отправить на почту");
+            SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
+            contextMenu.getItems().addAll(menuItem1, menuItem2, menuItem3, separatorMenuItem, menuItem4);
+
+            registrationTable.setOnMouseClicked(event2 -> {
+                if (event2.getButton() == MouseButton.SECONDARY) {
+                    contextMenu.show(registrationTable, event2.getScreenX(), event2.getScreenY());
+                }
+            });
         }
+
+        analyseRegTab.setOnSelectionChanged(event -> {
+            if(analyseRegTab.isSelected()){
+                ContextMenu contextMenu = new ContextMenu();
+                MenuItem menuItem1 = new MenuItem("Закрепить принимающего врача");
+                MenuItem menuItem2 = new MenuItem("Удалить принимающего врача");
+                contextMenu.getItems().addAll(menuItem1, menuItem2);
+
+                analyseRegTable.setOnMouseClicked(event1 -> {
+                    if (event1.getButton() == MouseButton.SECONDARY) {
+                        contextMenu.show(registrationTable, event1.getScreenX(), event1.getScreenY());
+                    }
+                });
+            }
+        });
 
         TreeItem<String> treeRoot = new TreeItem<>("Даты");
         TreeItem<String> chapter1 = new TreeItem<>("28.04.2023");
@@ -303,6 +337,17 @@ public class MainForm {
 
                 reloadRegButton.setOnAction(actionEvent -> {
                     registrationTable.setItems(FXCollections.observableList(regPatientList));
+                });
+
+                ContextMenu contextMenu = new ContextMenu();
+                MenuItem menuItem1 = new MenuItem("Опция 1");
+                MenuItem menuItem2 = new MenuItem("Опция 2");
+                contextMenu.getItems().addAll(menuItem1, menuItem2);
+
+                registrationTable.setOnMouseClicked(event2 -> {
+                    if (event2.getButton() == MouseButton.SECONDARY) {
+                        contextMenu.show(registrationTable, event2.getScreenX(), event2.getScreenY());
+                    }
                 });
             }
         });
