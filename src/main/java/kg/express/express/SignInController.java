@@ -32,7 +32,8 @@ public class SignInController {
     void initialize() {
 
         signInButton.setOnAction(actionEvent -> {
-//            if(signInLogin.getText().equals("admin") && signInPassword.getText().equals("admin")){
+
+            if(signInLogin.getText().equals("admin") && signInPassword.getText().equals("admin")){
                 signInButton.getScene().getWindow().hide();
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("findanalys.fxml"));
@@ -48,7 +49,7 @@ public class SignInController {
                 stage.setScene(scene);
                 stage.setResizable(false);
                 stage.show();
-//            }
+            }
         });
 
     }

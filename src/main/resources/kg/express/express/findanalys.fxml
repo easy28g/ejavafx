@@ -242,7 +242,7 @@
             </MenuBar>
          </children>
       </AnchorPane>
-      <TabPane cache="true" layoutY="25.0" prefHeight="575.0" prefWidth="1200.0" style="-fx-border-color: #606060;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="MainTabPane" cache="true" layoutY="25.0" prefHeight="575.0" prefWidth="1200.0" style="-fx-border-color: #606060;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab id="reg" fx:id="tabRegistrator" text="Регистратор">
             <content>
@@ -754,7 +754,7 @@
                      </children></AnchorPane>
                </content>
             </Tab>
-            <Tab text="Склад">
+            <Tab fx:id="storeTab" text="Склад">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>

@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -237,6 +236,12 @@ public class MainForm {
 
     @FXML
     private TableView<?> analyseRegTable;
+
+    @FXML
+    private Tab storeTab;
+
+    @FXML
+    private TabPane MainTabPane;
 
     @FXML
     void initialize() {
