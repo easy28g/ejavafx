@@ -431,8 +431,14 @@
                                           <CheckBox layoutX="764.0" layoutY="197.0" mnemonicParsing="false" />
                                           <TableView layoutX="5.0" layoutY="221.0" prefHeight="257.0" prefWidth="1187.0">
                                             <columns>
-                                              <TableColumn prefWidth="75.0" text="C1" />
-                                              <TableColumn prefWidth="75.0" text="C2" />
+                                              <TableColumn prefWidth="75.0" text="Анализы" />
+                                              <TableColumn prefWidth="75.0" text="Цена" />
+                                                <TableColumn prefWidth="75.0" text="Кол-во" />
+                                                <TableColumn prefWidth="75.0" text="Скидка" />
+                                                <TableColumn prefWidth="75.0" text="Итого" />
+                                                <TableColumn prefWidth="99.199951171875" text="Напр. врач" />
+                                                <TableColumn prefWidth="155.20001220703125" text="Врач принимающий" />
+                                                <TableColumn prefWidth="100.79998779296875" text="Удалить" />
                                             </columns>
                                           </TableView>
                                           <TextField layoutX="71.0" layoutY="484.0" prefHeight="26.0" prefWidth="100.0" />
@@ -791,22 +797,25 @@
                      </children></AnchorPane>
                </content>
             </Tab>
-            <Tab text="Запись к врачу">
+            <Tab fx:id="appointmentDoctorTab" text="Запись к врачу">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="6.0" layoutY="3.0" prefHeight="501.0" prefWidth="1186.0">
+                        <TableView fx:id="appointmentDoctorTable" layoutX="5.0" layoutY="36.0" prefHeight="503.0" prefWidth="1186.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Код" />
-                            <TableColumn prefWidth="222.0" text="ФИО" />
-                              <TableColumn prefWidth="209.0" text="Дата" />
-                              <TableColumn prefWidth="140.0" text="Время" />
-                              <TableColumn prefWidth="161.0" text="Пациент" />
-                              <TableColumn prefWidth="175.0" text="Пол" />
-                              <TableColumn prefWidth="188.0" text="Дата рождения" />
+                            <TableColumn fx:id="aptntCode" prefWidth="75.0" text="Код" />
+                            <TableColumn fx:id="aptntFio" prefWidth="222.0" text="ФИО" />
+                              <TableColumn fx:id="aptntDate" prefWidth="209.0" text="Дата" />
+                              <TableColumn fx:id="aptntTime" prefWidth="140.0" text="Время" />
+                              <TableColumn fx:id="aptntPatient" prefWidth="161.0" text="Пациент" />
+                              <TableColumn fx:id="aptntGender" prefWidth="175.0" text="Пол" />
+                              <TableColumn fx:id="aptntBirthday" prefWidth="188.0" text="Дата рождения" />
                           </columns>
                         </TableView>
-                        <Button layoutX="954.0" layoutY="512.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Форма поиска" />
+                        <Button fx:id="appointmentDoctorFindButton" layoutX="834.0" layoutY="4.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="162.0" text="Расширенный поиск" />
+                        <TextField fx:id="appointmentDoctorSearch" layoutX="357.0" layoutY="5.0" />
+                        <Button fx:id="appointmentDoctorSearchButton" layoutX="514.0" layoutY="4.0" mnemonicParsing="false" text="Найти" />
+                        <Button fx:id="reloadAppointmentDoctorButton" layoutX="42.0" layoutY="5.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" text="*" />
                      </children></AnchorPane>
                </content>
             </Tab>

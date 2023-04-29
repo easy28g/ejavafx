@@ -176,11 +176,62 @@ public class MainForm {
     private Button reloadRegButton;
 
     @FXML
+    private TableView<AppointmentDoctor> appointmentDoctorTable;
+
+    List<AppointmentDoctor> appointmentDoctorList = List.of(
+            new AppointmentDoctor(1, "Иванов Иван Иванович", "01.05.2023", "10:00", "Петров Петр Петрович", "М", "01.01.1990"),
+            new AppointmentDoctor(2, "Петров Петр Петрович", "02.05.2023", "11:00", "Иванов Иван Иванович", "М", "01.01.1985"),
+            new AppointmentDoctor(3, "Сидоров Сидор Сидорович", "03.05.2023", "12:00", "Кузнецова Елена Петровна", "Ж", "01.01.1975"),
+            new AppointmentDoctor(4, "Кузнецова Елена Петровна", "04.05.2023", "13:00", "Сидоров Сидор Сидорович", "Ж", "01.01.1980"),
+            new AppointmentDoctor(5, "Петрова Анна Ивановна", "05.05.2023", "14:00", "Иванова Мария Петровна", "Ж", "01.01.1995"),
+            new AppointmentDoctor(6, "Иванова Мария Петровна", "06.05.2023", "15:00", "Петрова Анна Ивановна", "Ж", "01.01.2000"),
+            new AppointmentDoctor(7, "Сергеев Сергей Сергеевич", "07.05.2023", "16:00", "Антонов Иван Иванович", "М", "01.01.1978"),
+            new AppointmentDoctor(8, "Антонов Иван Иванович", "08.05.2023", "17:00", "Сергеев Сергей Сергеевич", "М", "01.01.1965"),
+            new AppointmentDoctor(9, "Федоров Федор Федорович", "09.05.2023", "18:00", "Сидоров Сидор Сидорович", "М", "01.01.1950"),
+            new AppointmentDoctor(10, "Кузьмин Сергей Петрович", "10.05.2023", "19:00", "Петрова Анна Ивановна", "М", "01.01.1988")
+    );
+
+    @FXML
+    private TableColumn<AppointmentDoctor, String> aptntBirthday;
+
+    @FXML
+    private TableColumn<AppointmentDoctor, Integer> aptntCode;
+
+    @FXML
+    private TableColumn<AppointmentDoctor, String> aptntDate;
+
+    @FXML
+    private TableColumn<AppointmentDoctor, String> aptntFio;
+
+    @FXML
+    private TableColumn<AppointmentDoctor, String> aptntGender;
+
+    @FXML
+    private TableColumn<AppointmentDoctor, String> aptntPatient;
+
+    @FXML
+    private TableColumn<AppointmentDoctor, String> aptntTime;
+
+    @FXML
+    private Tab appointmentDoctorTab;
+
+    @FXML
     private MenuBar mainMenuBar;
 
+    @FXML
+    private Button appointmentDoctorFindButton;
 
     @FXML
     private MenuItem reloadAppButton;
+
+    @FXML
+    private Button appointmentDoctorSearchButton;
+
+    @FXML
+    private TextField appointmentDoctorSearch;
+
+    @FXML
+    private Button reloadAppointmentDoctorButton;
 
     @FXML
     void initialize() {
@@ -204,6 +255,10 @@ public class MainForm {
         // Первое вхождение
         if(tabRegistrator.isSelected() && patientDataTab.isSelected()){
             registrationAddAllInfo();
+
+            reloadRegButton.setOnAction(actionEvent -> {
+                registrationTable.setItems(FXCollections.observableList(regPatientList));
+            });
 
             System.out.println("tabRegistrator patientDataTab");
             registratorPatiantDataFindButton.setOnAction(actionEvent -> {
@@ -236,6 +291,7 @@ public class MainForm {
         treeRoot.getChildren().addAll(chapter1, chapter2, chapter3);
         registratorPationDataTree.setRoot(treeRoot);
 
+        // Если его выбрали
         patientDataTab.setOnSelectionChanged(event1 ->  {
             if(patientDataTab.isSelected()){
                 registrationAddAllInfo();
@@ -251,6 +307,7 @@ public class MainForm {
             }
         });
 
+        // Найти анализы
         tabFindAnalyse.setOnSelectionChanged(event -> {
             if (tabFindAnalyse.isSelected()) {
 
@@ -299,6 +356,55 @@ public class MainForm {
 
                 reloadAnalyseButton.setOnAction(actionEvent -> {
                     findAnalyseTable.setItems(FXCollections.observableList(findAnalyseList));
+                });
+            }
+        });
+
+
+        appointmentDoctorFindButton.setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("doctorappointmentfind.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setTitle("Express+");
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        });
+
+        // Запись к врачу
+        appointmentDoctorTab.setOnSelectionChanged(event -> {
+            if(appointmentDoctorTab.isSelected()){
+                aptntCode.setCellValueFactory(new PropertyValueFactory<>("code"));
+                aptntFio.setCellValueFactory(new PropertyValueFactory<>("fio"));
+                aptntDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+                aptntTime.setCellValueFactory(new PropertyValueFactory<>("time"));
+                aptntPatient.setCellValueFactory(new PropertyValueFactory<>("patient"));
+                aptntGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+                aptntBirthday.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+
+                appointmentDoctorTable.setItems(FXCollections.observableList(appointmentDoctorList));
+
+                appointmentDoctorSearchButton.setOnAction(actionEvent -> {
+                    for(int i=0; i<appointmentDoctorList.size(); i++){
+                        if(appointmentDoctorSearch.getText().equals(String.valueOf(appointmentDoctorList.get(i).getCode()))){
+                            AppointmentDoctor appointmentDoctor = appointmentDoctorList.get(i);
+                            ObservableList<AppointmentDoctor> appointmentDoctorObservableList = FXCollections.observableArrayList();
+                            appointmentDoctorObservableList.add(appointmentDoctor);
+                            appointmentDoctorTable.setItems(appointmentDoctorObservableList);
+                            break;
+                        }
+                    }
+                });
+
+                reloadAppointmentDoctorButton.setOnAction(actionEvent -> {
+                    appointmentDoctorTable.setItems(FXCollections.observableList(appointmentDoctorList));
                 });
             }
         });
