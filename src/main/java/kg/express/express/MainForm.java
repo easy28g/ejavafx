@@ -280,10 +280,8 @@ public class MainForm {
                 registrationTable.setItems(FXCollections.observableList(regPatientList));
             });
 
-            System.out.println("tabRegistrator patientDataTab");
             registratorPatiantDataFindButton.setOnAction(actionEvent -> {
                 registrationSearchButton();
-                System.out.println("button tabRegistrator patientDataTab");
             });
 
             ContextMenu contextMenu = new ContextMenu();
@@ -344,10 +342,8 @@ public class MainForm {
         patientDataTab.setOnSelectionChanged(event1 ->  {
             if(patientDataTab.isSelected()){
                 registrationAddAllInfo();
-                System.out.println("YES2");
                 registratorPatiantDataFindButton.setOnAction(actionEvent -> {
                     registrationSearchButton();
-                    System.out.println("Button find");
                 });
 
                 reloadRegButton.setOnAction(actionEvent -> {
