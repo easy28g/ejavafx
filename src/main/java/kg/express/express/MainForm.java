@@ -4,11 +4,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -242,6 +246,12 @@ public class MainForm {
 
     @FXML
     private TabPane MainTabPane;
+
+    @FXML
+    private Tab diagramTab;
+
+    @FXML
+    private PieChart pieChartDiagram;
 
     @FXML
     void initialize() {
@@ -508,6 +518,31 @@ public class MainForm {
                     appointmentDoctorTable.setItems(FXCollections.observableList(appointmentDoctorList));
                 });
             }
+        });
+
+        diagramTab.setOnSelectionChanged(event -> {
+            if(diagramTab.isSelected()){
+                int maleCount=0, femaleCount=0;
+                for(int i=0; i<findAnalyseList.size(); i++){
+                    if(findAnalyseList.get(i).getGender().equals("Мужской")){
+                        maleCount++;
+                    } else {
+                        femaleCount++;
+                    }
+                }
+                ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                        new PieChart.Data("Мужчины", maleCount),
+                        new PieChart.Data("Женщины", femaleCount)
+                );
+                pieChartDiagram.setData(pieChartData);
+                pieChartDiagram.setLabelsVisible(true);
+                pieChartDiagram.setLegendVisible(true);
+            }
+            pieChartDiagram.setLabelLineLength(15);
+            pieChartDiagram.getData().forEach(data -> {
+                String label = String.format("%d", Math.round(data.getPieValue()));
+                data.setName(data.getName() + ": " + label);
+            });
         });
     }
 
